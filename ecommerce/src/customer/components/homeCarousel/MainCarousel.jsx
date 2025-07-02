@@ -5,7 +5,14 @@ import { mainCarouselData } from "./MainCarouselData";
 
 const MainCarousel = () => {
   const items = mainCarouselData.map((item) => {
-    return <img className="cursor-pointer"src={item.image} alt="image1" role="presentation" />;
+    return (
+      <img
+        className="cursor-pointer h-[50vh]"
+        src={item.image}
+        alt="image1"
+        role="presentation"
+      />
+    );
   });
   console.log(items);
   return (
