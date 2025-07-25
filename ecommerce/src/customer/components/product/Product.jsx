@@ -15,6 +15,7 @@ import {
   Transition,
 } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   ChevronDownIcon,
   FunnelIcon,
@@ -44,7 +45,42 @@ function classNames(...classes) {
 }
 
 export default function Product() {
+  const navigate = useNavigate();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const location = useLocation();
+  const handleFilter = (value, sectionId) => {
+    const searchParams = new URLSearchParams(location.search);
+
+    let filterValues = searchParams.getAll(sectionId);
+
+    if (filterValues.length > 0 && filterValues[0].split(",").includes(value)) {
+      filterValues = filterValues[0]
+        .split(",")
+        .filter((item) => item !== value);
+      if (filterValues.length === 0) {
+        searchParams.delete(sectionId);
+      }
+      console.log("includes");
+    } else {
+      // Remove all values for the current section
+      // searchParams.delete(sectionId);
+      filterValues.push(value);
+    }
+
+    if (filterValues.length > 0)
+      searchParams.set(sectionId, filterValues.join(","));
+
+    // history.push({ search: searchParams.toString() });
+    const query = searchParams.toString();
+    navigate({ search: `?${query}` });
+  };
+
+  const handleRadioFilterChange = (e, sectionId) => {
+    const searchParams = new URLSearchParams(location.search);
+    searchParams.set(sectionId, e.target.value);
+    const query = searchParams.toString();
+    navigate({ search: `?${query}` });
+  };
 
   return (
     <div className="bg-white -z-20 ">
@@ -138,14 +174,16 @@ export default function Product() {
                                       type="checkbox"
                                       defaultChecked={option.checked}
                                       className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                      // onChange={() =>
-                                      //   handleFilter(option.value, section.id)
-                                      // }
+                                      onChange={() =>
+                                        handleFilter(option.value, section.id)
+                                      }
                                     />
                                     <label
                                       htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
                                       className="ml-3 min-w-0 flex-1 text-gray-500"
-                                      // onClick={()=>handleFilter(option.value,section.id)}
+                                      onClick={() =>
+                                        handleFilter(option.value, section.id)
+                                      }
                                     >
                                       {option.label}
                                     </label>
@@ -346,9 +384,9 @@ export default function Product() {
                                     value={option.value}
                                     control={<Radio />}
                                     label={option.label}
-                                    // onChange={(e) =>
-                                    //   handleRadioFilterChange(e, section.id)
-                                    // }
+                                    onChange={(e) =>
+                                      handleRadioFilterChange(e, section.id)
+                                    }
                                   />
                                 ))}
                               </RadioGroup>
