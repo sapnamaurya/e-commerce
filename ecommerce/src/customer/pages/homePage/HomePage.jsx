@@ -21,9 +21,7 @@ const HomePage = () => {
         />
         <HomeSectionCarousal data={mens_kurta} sectionName={"Women's Dress"} />{" "}
       </div>
-      <div>
-        <Footer />
-      </div>
+    
     </div>
   );
 };

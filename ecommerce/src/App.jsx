@@ -5,6 +5,12 @@ import "./App.css";
 import Navbar from "./customer/components/navbar/Navbar";
 import HomePage from "./customer/pages/homePage/HomePage";
 import Product from "./customer/components/product/Product";
+import ProductDetail from "./customer/components/productDetail/ProductDetail";
+import Footer from "./customer/components/footer/Footer";
+import Cart from "./customer/components/cart/Cart";
+import CheckOut from "./customer/components/checkOut/CheckOut";
+import Order from "./customer/components/order/Order";
+import OrderDetails from "./customer/components/order/OrderDetails";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,11 +19,23 @@ function App() {
     <>
       <div>
         <Navbar />
-        <div>
+        {/* <div>
           <HomePage />
         </div>
         <div>
           <Product />
+        </div> */}
+        {/* <div>
+          <ProductDetail />
+        </div> */}
+        <div>
+          {/* <Cart /> */}
+          {/* <CheckOut /> */}
+          {/* <Order /> */}
+          <OrderDetails />
+        </div>
+        <div>
+          <Footer />
         </div>
       </div>
     </>
