@@ -1,7 +1,7 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import React from "react";
 // import OrderTraker from "./OrderTraker";
-import StarIcon from "@mui/icons-material/Star";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
 // import { useNavigate, useParams } from "react-router-dom";
 import AddressCard from "../address/AdreessCard";
 import OrderTraker from "./OrderTraker";
@@ -40,18 +40,18 @@ const OrderDetails = () => {
           <Grid
             item
             container
-            className="shadow-xl rounded:md p-5 border"
+            className="shadow-xl rounded:md p-5 w-[100%] border"
             sx={{ alignItems: "center", justifyContent: "space-between" }}
           >
             <Grid item xs={6}>
-              <div className="flex  items-center space-x-5">
+              <div className="w-[5rem] h-[5rem] object-cover object-top flex ">
                 <img
                   src="https://rukminim1.flixcart.com/image/612/612/kmns7m80/jean/9/5/o/36-black-36-coper-buck-original-imagfg9edbsneu2s.jpeg?q=70"
                   alt=""
                 />
-                <div>
+                <div className="space-y-2 ml-5">
                   <p>fefergrgr</p>
-                  <p className="spacex-5">
+                  <p className="space-x-5">
                     <span>Color: pink</span> <span>Size: m</span>
                   </p>
                   <p>Seller: copor buck</p>
@@ -61,7 +61,7 @@ const OrderDetails = () => {
             </Grid>
             <Grid item>
               <Box sx={{ color: deepPurple[500] }}>
-                <StarIcon sx={{ fontSize: "2px" }} className="px-2" />
+                <StarBorderIcon sx={{ fontSize: "2px" }} className="px-2 " />
                 <span>Rate & Review Product</span>
               </Box>
             </Grid>
