@@ -14,6 +14,7 @@ import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 // import { useDispatch, useSelector } from "react-redux";
 import { deepPurple } from "@mui/material/colors";
 import { navigation } from "./navigationData";
+import { useNavigate } from "react-router";
 // import { getUser, logout } from "../../../Redux/Auth/Action";
 // import { getCart } from "../../../Redux/Customers/Cart/Action";
 
@@ -23,7 +24,7 @@ function classNames(...classes) {
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // const dispatch = useDispatch();
   // const { auth, cart } = useSelector((store) => store);
   const [openAuthModal, setOpenAuthModal] = useState(false);
@@ -54,7 +55,7 @@ export default function Navigation() {
   };
 
   const handleCategoryClick = (category, section, item, close) => {
-    // navigate(`/${category.id}/${section.id}/${item.id}`);
+    navigate(`/${category.id}/${section.id}/${item.id}`);
     close();
   };
 
@@ -425,7 +426,7 @@ export default function Navigation() {
                           Profile
                         </MenuItem>
 
-                        <MenuItem>My Orders</MenuItem>
+                        <MenuItem onClick={()=>navigate("/account/order")}>My Orders</MenuItem>
                         <MenuItem>Logout</MenuItem>
                       </Menu>
                     </div>

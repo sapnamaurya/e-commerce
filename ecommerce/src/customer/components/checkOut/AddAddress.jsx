@@ -42,114 +42,104 @@ export default function AddAddressForm() {
   // };
 
   return (
-    <Grid container spacing={4}>
-      <Grid item xs={12} lg={5}>
-        <Box className="border rounded-md shadow-md h-[30.5rem] overflow-y-scroll ">
+    <div className="w-full flex gap-6 items-start">
+      {/* LEFT SECTION */}
+      <div className="w-[35%]">
+        <Box className="rounded-md shadow-md h-[32rem] overflow-y-scroll w-full">
           <div className="p-5 py-7 border-b cursor-pointer">
-            {" "}
             <AddressCard />
             <Button
               sx={{ mt: 2 }}
               size="large"
               variant="contained"
               color="primary"
-              // onClick={()=>handleCreateOrder(item)}
             >
-              Deliverd Here
+              Delivered Here
             </Button>
           </div>
         </Box>
-      </Grid>
-      <Grid item xs={12} lg={7}>
-        <Box className="border rounded-md shadow-md p-5">
+      </div>
+
+      {/* RIGHT SECTION */}
+      <div className="w-[65%]">
+        <Box className=" rounded-md shadow-md p-5 w-full">
           <form onSubmit={handleSubmit}>
-            <Grid container spacing={3}>
+            <Grid className="grid grid-cols-2 md:grid-cols-2 gap-6" spacing={3}>
               <Grid item xs={12} sm={6}>
                 <TextField
                   required
-                  id="firstName"
                   name="firstName"
                   label="First Name"
                   fullWidth
-                  autoComplete="given-name"
                 />
               </Grid>
+
               <Grid item xs={12} sm={6}>
                 <TextField
                   required
-                  id="lastName"
                   name="lastName"
                   label="Last Name"
                   fullWidth
-                  autoComplete="given-name"
                 />
               </Grid>
-              <Grid item xs={12}>
+
+              <Grid container spacing={2} sx={{ width: "100%" }}>
                 <TextField
                   required
-                  id="address"
                   name="address"
                   label="Address"
                   fullWidth
-                  autoComplete="shipping address"
                   multiline
                   rows={4}
+                  columns={7}
                 />
               </Grid>
+
+              <Grid item xs={12} sm={6}>
+                <TextField required name="city" label="City" fullWidth />
+              </Grid>
+
               <Grid item xs={12} sm={6}>
                 <TextField
                   required
-                  id="city"
-                  name="city"
-                  label="City"
-                  fullWidth
-                  autoComplete="shipping address-level2"
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  id="state"
                   name="state"
                   label="State/Province/Region"
                   fullWidth
                 />
               </Grid>
+
               <Grid item xs={12} sm={6}>
                 <TextField
                   required
-                  id="zip"
                   name="zip"
                   label="Zip / Postal code"
                   fullWidth
-                  autoComplete="shipping postal-code"
                 />
               </Grid>
+
               <Grid item xs={12} sm={6}>
                 <TextField
                   required
-                  id="phoneNumber"
                   name="phoneNumber"
                   label="Phone Number"
                   fullWidth
-                  autoComplete="tel"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <Button
-                  sx={{ padding: ".9rem 1.5rem" }}
-                  size="large"
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                >
-                  Deliverd Here
-                </Button>
-              </Grid>
+            </Grid>
+            <Grid item xs={12} sx={{ mt: "20px" }}>
+              <Button
+                sx={{ padding: ".9rem 1.5rem" }}
+                size="large"
+                type="submit"
+                variant="contained"
+                color="primary"
+              >
+                Delivered Here
+              </Button>
             </Grid>
           </form>
         </Box>
-      </Grid>
-    </Grid>
+      </div>
+    </div>
   );
 }

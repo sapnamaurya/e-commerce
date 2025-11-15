@@ -25,9 +25,9 @@ const Order = () => {
   // console.log("users orders ",order.orders)
   return (
     <div>
-      <Grid container sx={{ justifyContent: "space-between" }}>
+      <Grid container spacing={10}className="px-5 lg:px-20">
         <Grid item xs={2.5} >
-          <div className="h-auto shadow-lg bg-white border p-5 sticky top-5">
+          <div className="w-[20rem] h-auto shadow-lg bg-white  p-5 sticky top-5">
             <h1 className="font-bold text-lg">Filters</h1>
             <div className="space-y-4 mt-10">
               <h1 className="font-semibold">ORDER STATUS</h1>

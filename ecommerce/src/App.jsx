@@ -11,6 +11,8 @@ import Cart from "./customer/components/cart/Cart";
 import CheckOut from "./customer/components/checkOut/CheckOut";
 import Order from "./customer/components/order/Order";
 import OrderDetails from "./customer/components/order/OrderDetails";
+import { Route, Routes } from "react-router";
+import CustomerRoutes from "./customer/components/Routers/CustomerRoutes";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -18,25 +20,13 @@ function App() {
   return (
     <>
       <div>
-        <Navbar />
-        {/* <div>
-          <HomePage />
-        </div>
-        <div>
-          <Product />
-        </div> */}
-        {/* <div>
-          <ProductDetail />
-        </div> */}
-        <div>
-          {/* <Cart /> */}
-          {/* <CheckOut /> */}
-          {/* <Order /> */}
-          <OrderDetails />
-        </div>
-        <div>
-          <Footer />
-        </div>
+        <Routes>
+          <Route path='/*'element={<CustomerRoutes/>}/>
+          
+        </Routes>
+      
+      
+     
       </div>
     </>
   );
