@@ -219,7 +219,7 @@ export default function ProductDetail() {
         <section>
           <h1 className="font-semibold text-lg pb-4">Recent Reviews & Ratings</h1>
 
-          <div className="border p-5">
+          <div className="border  p-5">
             <Grid container spacing={4}>
               <Grid item xs={7}>
                 <div className="space-y-5">

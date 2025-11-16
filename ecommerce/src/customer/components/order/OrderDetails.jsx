@@ -36,12 +36,12 @@ const OrderDetails = () => {
         <div className="py-20">
           <OrderTraker activeStep={3} />
         </div>
-        <Grid className="space-y-5" container>
+        <Grid className="space-y-5 " container>
           {[1, 1, 1, 1, 1].map((item) => (
             <Grid
               item
               container
-              className="shadow-xl rounded:md p-5 w-[100%] border"
+              className="shadow-xl rounded:md p-5 w-[100%] "
               sx={{ alignItems: "center", justifyContent: "space-between" }}
             >
               <Grid item xs={6}>

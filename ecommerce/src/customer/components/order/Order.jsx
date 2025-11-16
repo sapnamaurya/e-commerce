@@ -1,50 +1,33 @@
 import { Box, Grid } from "@mui/material";
-// import React, { useEffect, useSyncExternalStore } from "react";
 import OrderCard from "./OrderCard";
-// import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-// import { useDispatch, useSelector } from "react-redux";
-// import { getOrderHistory } from "../../../Redux/Customers/Order/Action";
-// import BackdropComponent from "../BackDrop/Backdrop";
 
 const orderStatus = [
   { label: "On The Way", value: "onTheWay" },
-  { label: "Delivered", value: "delevered" },
+  { label: "Delivered", value: "delivered" },
   { label: "Cancelled", value: "cancelled" },
-  { label: "Returned", vlue: "returned" },
+  { label: "Returned", value: "returned" },
 ];
 
 const Order = () => {
-  // const dispatch = useDispatch();
-  // const jwt = localStorage.getItem("jwt");
-  // const {order}=useSelector(store=>store);
-
-  // useEffect(() => {
-  //   dispatch(getOrderHistory({ jwt }));
-  // }, [jwt]);
-
-  // console.log("users orders ",order.orders)
   return (
-    <div>
-      <Grid container spacing={10}className="px-5 lg:px-20">
-        <Grid item xs={2.5} >
-          <div className="w-[20rem] h-auto shadow-lg bg-white  p-5 sticky top-5">
+    <div className="w-full">
+      <Grid container spacing={4} className="px-5 lg:px-20">
+        {/* LEFT FILTER PANEL */}
+        <Grid item xs={12} md={3} className="w-[23%]">
+          <div className="w-full shadow-lg bg-white p-5 sticky top-5 rounded-md">
             <h1 className="font-bold text-lg">Filters</h1>
+
             <div className="space-y-4 mt-10">
               <h1 className="font-semibold">ORDER STATUS</h1>
+
               {orderStatus.map((option) => (
                 <div key={option.value} className="flex items-center">
                   <input
-                    //   id={`filter-${section.id}-${optionIdx}`}
-                    //   name={`${section.id}[]`}
-                    defaultValue={option.value}
                     type="checkbox"
-                    defaultChecked={option.checked}
-                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                    defaultValue={option.value}
+                    className="h-4 w-4 rounded border-gray-300 text-indigo-600"
                   />
-                  <label
-                    htmlFor={option.label}
-                    className="ml-3 text-sm text-gray-600"
-                  >
+                  <label className="ml-3 text-sm text-gray-600">
                     {option.label}
                   </label>
                 </div>
@@ -52,22 +35,23 @@ const Order = () => {
             </div>
           </div>
         </Grid>
-        <Grid item xs={9}>
-          <Box className="space-y-5 ">
-            <div>
-              {[1, 1, 1, 1, 1, 1].map((item) => (
-                <OrderCard />
-              ))}
-            </div>
 
-            {/* {order.orders?.length>0 && order.orders?.map((order )=> { */}
-            {/* return order?.orderItems?.map((item,index)=> <OrderCard item={item} order={order} />) */}
-            {/* })} */}
+        {/* RIGHT ORDER LIST FULL WIDTH */}
+        <Grid item xs={12} md={9} className="w-[73%]">
+          <Box className="space-y-5 w-full">
+            {[1, 1, 1, 1, 1, 1].map((item, index) => (
+              <OrderCard key={index} />
+            ))}
+
+            {/* If API data: */}
+            {/* order.orders?.map((order) =>
+              order.orderItems.map((item) => (
+                <OrderCard item={item} order={order} />
+              ))
+            ) */}
           </Box>
         </Grid>
       </Grid>
-
-      {/* <BackdropComponent open={order.loading}/> */}
     </div>
   );
 };
