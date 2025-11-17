@@ -9,6 +9,7 @@ import ProductDetail from "../productDetail/ProductDetail";
 import CheckOut from "../checkOut/CheckOut";
 import Order from "../order/Order";
 import OrderDetails from "../order/OrderDetails";
+import LoginForm from "../../Auth/LoginForm";
 // import CheckOut from "../checkOut/CheckOut";
 
 const CustomerRoutes = () => {
@@ -19,15 +20,14 @@ const CustomerRoutes = () => {
       </div>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<HomePage />} />
+        <Route path="/register" element={<HomePage />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/:lavelOne/:lavelTwo/:lavelThree" element={<Product />} />
         <Route path="/product/:productId" element={<ProductDetail />} />
         <Route path="/checkout" element={<CheckOut />} />
         <Route path="/account/order" element={<Order />} />
         <Route path="/account/order/:orderId" element={<OrderDetails />} />
-
-   
-    
       </Routes>
       <div>
         <Footer />
